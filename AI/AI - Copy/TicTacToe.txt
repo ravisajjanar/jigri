@@ -1,0 +1,72 @@
+def clean(floor):
+    final = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+    i = 0
+    j = 0
+    x = 0
+    step = -1
+    row = len(floor)
+    column = len(floor[0])
+
+    print("Initial State is :")
+    print(floor)
+    print("\n")
+
+    print("Final State is :")
+    print(final)
+    print("\n")
+
+    print("Assuming Initial State of Vaccum Cleaner is 0,0 ")
+    print("Start Moving from 0,0")
+    print("\n")
+
+    while (row != 0):
+        if floor[i][j] == 1:
+            print("Cleaning The Space")
+            print("\n")
+
+            step += 1
+            floor[i][j] = 0
+            x = x + 1
+            print_floor(floor, i, j, x)
+            print("Moving Right")
+            print("\n")
+
+            step += 1
+            j = j + 1
+
+        else:
+            print("Space is Clean, Moving Right")
+            print("\n")
+
+            step += 1
+            j = j + 1
+        if j == column:
+            j = 0
+            i = i + 1
+            row = row - 1
+            print("Moving Down")
+            print("\n")
+
+            step += 1
+
+    print("Final State is Reached ")
+    print("Total Step Coat is : ")
+    print(step)
+
+
+def print_floor(floor, row, col, count):  # row, col represent the current vacuum cleaner position
+    print('step:', count)
+    for x in floor:
+        print(x)
+    print('cleaned the Dirt at  :', row, col)
+    print("\n")
+
+
+# Test 1
+floor = [[1, 0, 0, 0],
+         [0, 1, 0, 1],
+         [1, 0, 1, 1]]
+
+clean(floor)
+
+
